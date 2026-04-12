@@ -1,0 +1,11 @@
+import { IsArray, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+
+export class CreateLockDto {
+  @IsNotEmpty()
+  @IsArray()
+  keys: string[];
+
+  @IsNotEmpty()
+  @IsNumber()
+  expire_time: number;
+}

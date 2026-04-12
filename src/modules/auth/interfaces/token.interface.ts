@@ -1,0 +1,62 @@
+import { LANGUAGE, TOKEN_TYPE, USER_CLIENT } from '@common/enums';
+import { Users } from '@modules/databases/user.entity';
+
+export interface ICreateToken {
+  token_ref?: string;
+  user: number;
+  client?: USER_CLIENT;
+  options?: Object;
+  type: TOKEN_TYPE;
+  remember_me?: boolean;
+  device_hash?: string;
+  is_mobile?: boolean;
+}
+
+export interface ClientBasic {
+  client: USER_CLIENT;
+  ip: string;
+  domain: string;
+
+  host: string;
+  url: string;
+
+  device_hash: string;
+
+  language: LANGUAGE;
+
+  type: TOKEN_TYPE;
+}
+export interface ClientBearer {
+  client: USER_CLIENT;
+  language: LANGUAGE;
+  user: Users;
+
+  role: string;
+  domain: string;
+  device_hash: string;
+
+  host: string;
+  url: string;
+  ip: string;
+}
+
+export interface AccessToken {
+  token: string;
+  refresh_token: string;
+  expired_at: Date;
+  refresh_token_expired_at: Date;
+  ask_change_pwd: boolean;
+}
+
+export interface RegisterBiometrict {
+  id: string;
+}
+
+export interface ISendOtp {
+  otp: boolean;
+  message: string;
+  value?: string;
+}
+export interface IToken {
+  token: string;
+}
